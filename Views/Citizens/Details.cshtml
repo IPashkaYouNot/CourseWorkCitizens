@@ -1,0 +1,101 @@
+﻿@model kr.Models.vCitizen
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>vCitizen</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Actual adress")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cActualAdress.FullAdress)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Registration adress")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cRegistrationAdress.FullAdress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IPNCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IPNCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Patronymic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patronymic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomeNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+
+        <dt>
+            Documents
+        </dt>
+        @foreach (var doc in Model.vDocument)
+        {
+            <dd>
+                @doc.DocumentId given by @doc.DepartmentNumber
+            </dd>
+        }
+        <dt>
+            Phone numbers
+        </dt>
+        @foreach (var number in Model.cMobilePhone)
+        {
+            <dd>
+                @number.Number
+            </dd>
+        }
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) | 
+    @Html.ActionLink("Back to List", "Index")
+</p>
